@@ -35,18 +35,18 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')
 
 // 在 main.js 或者组件的 mounted 钩子中添加如下代码
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-});
+// document.addEventListener('contextmenu', function(event) {
+//   event.preventDefault();
+// });
 
-document.addEventListener('keydown', function(event) {
-  if (event.keyCode === 123 || // F12
-      (event.ctrlKey && event.shiftKey && event.keyCode === 73) || // Ctrl+Shift+I
-      (event.ctrlKey && event.keyCode === 85)) { // Ctrl+U
-      event.preventDefault();
-  }
-});
+// document.addEventListener('keydown', function(event) {
+//   if (event.keyCode === 123 || // F12
+//       (event.ctrlKey && event.shiftKey && event.keyCode === 73) || // Ctrl+Shift+I
+//       (event.ctrlKey && event.keyCode === 85)) { // Ctrl+U
+//       event.preventDefault();
+//   }
+// });
