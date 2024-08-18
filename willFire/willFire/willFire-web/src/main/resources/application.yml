@@ -1,0 +1,77 @@
+# tomcat 配置
+server:
+  port: 8081
+  tomcat:
+    threads.max: 50
+    max-connections: 100
+    max-http-form-post-size: 120MB
+    connection-timeout: 60000
+  servlet:
+    context-path: /api
+
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# spring 配置
+spring:
+  # 文件服务
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  # 消息队列
+  rabbitmq:
+    host: 47.96.86.223
+    username: guest
+    password: guest
+    virtual-host: /
+    port: 5672
+  # 发送邮件的服务
+  mail:
+    host: smtp.qq.com # qq邮箱的SMTP
+    username: 3217998214@qq.com # 站长的qq邮箱
+    password: dabjalmqzgfaddbg # qq邮箱申请到的密钥
+    default-encoding: utf-8
+    protocol: smtp
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+  # 数据库服务
+  datasource:
+    username: root
+    password: a3.1415926
+    url: jdbc:mysql://47.96.86.223:3306/will_fire?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 邮件发送的格式
+user:
+  subscribe:
+    format: 您订阅的标签是：%s，文章标题是：%s
+
+# minio基本配置
+minio:
+  access-key: minioadmin
+  secret-key: minioadmin
+  endpoint: http://47.96.86.223:9000
+  bucket-name: bucket-01
+
+# 七牛云基本配置
+qiniu:
+  accessKey: 9BKStIkVWhQJFc7eRI6-spD1Os99O2WCC4JwY03i
+  secretKey: YU0oloaBilRu7MlGFtNKLZffRZ6TIFKUxe1voBzB
+  bucket: will-fire
+  downloadUrl: http://si7o900bp.hn-bkt.clouddn.com/
